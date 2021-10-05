@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3 style="text-align:center;margin-bottom: 0px;">Registros de los Servicios</h3>
+            <div class="form-group" style="text-align:-webkit-right;">
+                <form action="">
+                        <div class="row" style="justify-content: flex-end;">
+                            <small style="padding-bottom: 4px;">Buscar por CC o Semana del Año</small>
+
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" [(ngModel)]="cc" name="cc" placeholder="C.C Tecnico">
+                            </div>
+
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" [(ngModel)]="week" name="week" placeholder="Semana del Año">
+                            </div>
+
+                            <div class="col-sm-1">
+                                <button (click)="Buscar(cc,week)" type="button" class="btn btn-info">Enviar</button>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <table class="table table-hover table-bordered align-middle">
+                <thead>
+                    <tr>
+                        <th>ID_REGISTRO</th>
+                        <th>ID_TECNICO</th>
+                        <th>SERVICIO</th>
+                        <th>FECHA-INICIO</th>
+                        <th>FECHA-FIN</th>
+                        <th>Semana del Año</th>
+                        <th>INFO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let servicio of servicios">
+                        <td>{{servicio.id}}</td>
+                        <td>{{servicio.id_tecnico}}</td>
+                        <td>{{servicio.nombre_servicio}}</td>
+                        <td>{{servicio.fecha_inicio | date:'dd/MM/yyy hh:mma':'UTC'}}</td>
+                        <td>{{servicio.fecha_final | date:'dd/MM/yyy hh:mma':'UTC'}}</td>
+                        <td>{{servicio.fecha_inicio | date:'w'}}</td>
+                        <td style="text-align: center;">
+                            <!--<button (click)="Editar(servicio)" style="border-radius: 2px;" class="btn btn-primary">Editar</button>
+                            <button  style="border-radius: 2px; margin-left: 5px; border-radius: 5px;" class="btn btn-danger">Eliminar</button>-->
+                            <button (click)="Info(servicio)" style="border-radius: 2px; margin-left: 5px; border-radius: 5px;" class="btn btn-outline-success"><i class="fas fa-info-circle"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

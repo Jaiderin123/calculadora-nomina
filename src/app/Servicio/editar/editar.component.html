@@ -1,0 +1,32 @@
+<div class="container col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <h3>Editar Informacion del Servicio</h3>
+        </div>
+
+        <div class="card-body">
+            <form action="">
+                <div class="form-group">
+                    <label for="">Nombre Del Tecnico</label>
+                    <input type="text" class="form-control" [(ngModel)]="servicio.id_tecnico" name="nombre_tecnico">
+                </div>
+                <div class="form-group">
+                    <label for="">Tipo de Servicio</label>
+                    <input type="text" class="form-control" [(ngModel)]="servicio.nombre_servicio" name="nombre_servicio">
+                </div>
+                <div class="form-group">
+                    <label for="">Fecha Inicio</label><br><small>Actual {{servicio.fecha_inicio | date:'dd/MM/yyy hh:mma':'UTC'}}</small>
+                    <input type="datetime-local" class="form-control" [(ngModel)]="servicio.fecha_inicio" name="fecha_inicio">
+                </div>
+                <div class="form-group">
+                    <label for="">Fecha Final</label><br><small>Actual {{servicio.fecha_final | date:'dd/MM/yyy hh:mma':'UTC'}}</small>
+                    <input type="datetime-local" class="form-control" [(ngModel)]="servicio.fecha_final" name="fecha_final">
+                </div>
+
+                <button (click)="Actualizar(servicio)" class="btn btn-danger" style="margin-top: 5px;">Guardar</button>
+
+            </form>
+        </div>
+
+    </div>
+</div>
